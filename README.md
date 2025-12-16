@@ -116,3 +116,52 @@ You're welcome to make UX improvements or add minor enhancements, as long as the
 ---
 
 We're excited to see how you approach these tasks — feel free to get creative, make reasonable trade-offs, and show us how you think as an engineer. We're particularly interested in your understanding of full-stack development and DevOps practices.
+
+---
+
+# Solution Implementation & Documentation
+
+## 🚀 Quick Start (Docker)
+
+The easiest way to run the full stack is using Docker Compose.
+
+1.  **Build and Run**:
+    ```bash
+    docker-compose up --build
+    ```
+2.  **Access the App**:
+    - Frontend: [http://localhost:5173](http://localhost:5173) (mapped to port 5173 in container)
+    - Backend: [http://localhost:3000](http://localhost:3000)
+
+## 🏗 Architectural Approach
+
+### Frontend (Vue.js)
+- **State Management**: Refactored `VendorStore` to handle specific error states (`fetchError` vs `actionError`) and loading states.
+- **Styling**: Implemented a CSS variable-based design system in `style.css` supporting **Light/Dark modes**. Layouts are responsive (Grid/Flex).
+- **UX**: Added custom confirmation modals for deletion and strict error scoping to avoid UI jitter.
+
+### Backend (Node.js)
+- **Database**: Continued use of SQLite for simplicity.
+- **API**:
+    - Added `DELETE /vendors/:id` endpoint.
+    - Enhanced `POST /vendors` to validation email uniqueness before insertion.
+- **Containerization**: Added `Dockerfile` based on `node:20-alpine`.
+
+### Verification & Testing
+- **Unit Tests**: Added `vendorStore.test.ts` using Vitest to verify store actions and state mutations.
+- **Run Tests**:
+    ```bash
+    cd frontend
+    npm test
+    ```
+
+## 📝 Answers to Personal Questions
+
+1.  **What do I love most about being a software engineer?**
+    > I love the constant cycle of learning and problem-solving. There's a unique satisfaction in taking a complex, abstract problem and crafting a tangible, efficient solution that improves someone's day. The field evolves so rapidly that there's always something new to master, which keeps the work engaging and challenging.
+
+2.  **What is most important to me when it comes to working in a team?**
+    >A team performs best when everyone feels safe to voice ideas, ask questions, or admit mistakes without fear of judgment. This openness, combined with aligned goals and mutual respect, fosters accurate collaboration and high-quality software.
+
+3.  **What is the worst part of being a software engineer?**
+    > While solving problems is great, undefined requirements can lead to wasted effort and frustration. Similarly, frequent interruptions break flow state, making it harder to tackle complex logic effectively.
